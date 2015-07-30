@@ -30,4 +30,5 @@ sub.col.names      <- names(example.submission)
 example.submission$Location <- NULL
 submission <- merge(example.submission, submission, all.x=T, sort=F)
 submission <- submission[, sub.col.names]
-write.csv(submission, file='results/submission_means.csv', quote=F, row.names=F)
+actual_submission <- submission[, c('RowId', 'Location')]
+write.csv(actual_submission, file='results/submission_means.csv', quote=F, row.names=F)
